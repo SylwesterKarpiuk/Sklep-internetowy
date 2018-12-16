@@ -23,10 +23,10 @@ namespace Shop___videopoint
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/custom").Include(
-                "~/Scripts/redScript.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/custom2").Include(
-                "~/Scripts/blueScript.js"));
+                "~/Scripts/redScript.js",
+                "~/Scripts/greenScript.js",
+                "~/Scripts/blueScript.js"
+                ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
