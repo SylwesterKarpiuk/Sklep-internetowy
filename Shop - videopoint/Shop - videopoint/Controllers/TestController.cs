@@ -15,6 +15,9 @@ namespace Shop___videopoint.Controllers
         }
         public ActionResult Hello(string id)
         {
+            ViewBag.Name = id;
+            ViewBag.Weather = "Słońce świeci bardzo mocno!";
+    
             return View();
         }
     }
