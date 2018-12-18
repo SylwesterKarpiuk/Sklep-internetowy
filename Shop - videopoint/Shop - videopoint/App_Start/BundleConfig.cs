@@ -25,7 +25,8 @@ namespace Shop___videopoint
             bundles.Add(new ScriptBundle("~/bundles/custom").Include(
                 "~/Scripts/redScript.js",
                 "~/Scripts/greenScript.js",
-                "~/Scripts/blueScript.js"
+                "~/Scripts/blueScript.js",
+                "~/Scripts/yellowScript.js"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
