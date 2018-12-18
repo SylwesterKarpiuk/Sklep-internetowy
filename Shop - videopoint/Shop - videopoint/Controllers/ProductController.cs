@@ -1,4 +1,5 @@
-﻿using Shop___videopoint.Models;
+﻿using Shop___videopoint.Filters;
+using Shop___videopoint.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,15 +8,15 @@ using System.Web.Mvc;
 
 namespace Shop___videopoint.Controllers
 {
+    [Log]
     public class ProductController : Controller
     {
         // GET: Prouct
-        public void Index()
+        public ActionResult Index()
         {
-          
-        }
+            return Content("Napis");
+;        }
         [ActionName("Pokaz")]
-        [Authorize]
         public ActionResult Display(int id)
         {
             throw new Exception("Coś poszło nie tak");
@@ -35,6 +36,6 @@ namespace Shop___videopoint.Controllers
             }
         }
        
-        
+      
     }
 }
