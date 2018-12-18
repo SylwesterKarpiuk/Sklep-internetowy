@@ -10,13 +10,27 @@ namespace Shop___videopoint.Controllers
     public class ProductController : Controller
     {
         // GET: Prouct
-        public ActionResult Index()
+        public void Index()
+        {
+          
+        }
+        public ActionResult Display(int id)
         {
             Product product = new Product();
+            product.id = 1;
             product.Name = "Książka ASP.NET MVC";
             product.Description = "Znajdziemy tutaj bardzo dużo wiedzy";
             product.Price = 100;
-            return View(product);
+
+            if (product.id == id)
+            {
+                return View(product);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            
         }
     }
 }
