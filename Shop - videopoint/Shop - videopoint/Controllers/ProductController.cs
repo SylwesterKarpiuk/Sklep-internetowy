@@ -15,8 +15,10 @@ namespace Shop___videopoint.Controllers
           
         }
         [ActionName("Pokaz")]
+        [Authorize]
         public ActionResult Display(int id)
         {
+            throw new Exception("Coś poszło nie tak");
             Product product = new Product();
             product.id = 1;
             product.Name = "Książka ASP.NET MVC";
@@ -32,5 +34,7 @@ namespace Shop___videopoint.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
+       
+        
     }
 }
