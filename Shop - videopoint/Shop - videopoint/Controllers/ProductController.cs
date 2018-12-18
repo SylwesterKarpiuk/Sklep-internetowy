@@ -11,7 +11,6 @@ namespace Shop___videopoint.Controllers
 {
     public class ProductController : Controller
     {
-
         static List<Product> _products = new List<Product>
         {
             new Product{ id = 1, Name = "Myszka", Description="Opis myszki", Price = 15 },
@@ -19,7 +18,7 @@ namespace Shop___videopoint.Controllers
             new Product{ id = 3, Name = "Słuchawki", Description="Opis słuchawek", Price = 60 },
             new Product{ id = 4, Name = "Monitor", Description="Opis monitora", Price = 500 }
         };
-
+        
         // GET: Product
         public ActionResult Index()
         {
