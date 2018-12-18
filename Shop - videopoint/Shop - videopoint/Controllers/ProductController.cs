@@ -14,6 +14,7 @@ namespace Shop___videopoint.Controllers
         {
           
         }
+        [ActionName("Pokaz")]
         public ActionResult Display(int id)
         {
             Product product = new Product();
@@ -24,13 +25,12 @@ namespace Shop___videopoint.Controllers
 
             if (product.id == id)
             {
-                return View(product);
+                return View("~/Views/Product/Display.cshtml",product);
             }
             else
             {
                 return RedirectToAction("Index", "Home");
             }
-            
         }
     }
 }

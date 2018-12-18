@@ -14,6 +14,7 @@ namespace Shop___videopoint.Controllers
         {
            
         }
+        [ActionName("Pokaz")]
         public ActionResult Display(int id)
         {
             Product2 product = new Product2
