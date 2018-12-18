@@ -1,41 +1,108 @@
-﻿using Shop___videopoint.Filters;
-using Shop___videopoint.Models;
+﻿using Shop___videopoint.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
+
 namespace Shop___videopoint.Controllers
 {
-    [Log]
     public class ProductController : Controller
     {
-        // GET: Prouct
+
+        static List<Product> _products = new List<Product>
+        {
+            new Product{ id = 1, Name = "Myszka", Description="Opis myszki", Price = 15 },
+            new Product{ id = 2, Name = "Klawiatura", Description="Opis klawiatury", Price = 25 },
+            new Product{ id = 3, Name = "Słuchawki", Description="Opis słuchawek", Price = 60 },
+            new Product{ id = 4, Name = "Monitor", Description="Opis monitora", Price = 500 }
+        };
+
+        // GET: Product
         public ActionResult Index()
         {
-            return Content("Napis");
-;        }
-        [ActionName("Pokaz")]
-        public ActionResult Display(int id)
-        {
-            throw new Exception("Coś poszło nie tak");
-            Product product = new Product();
-            product.id = 1;
-            product.Name = "Książka ASP.NET MVC";
-            product.Description = "Znajdziemy tutaj bardzo dużo wiedzy";
-            product.Price = 100;
+            var model = _products;
+            return View(model);
+        }
 
-            if (product.id == id)
+        // GET: Product/Details/5
+        public ActionResult Details(int id)
+        {
+            var model = _products.FirstOrDefault(p => p.id == id);
+
+            if (model == null)
             {
-                return View("~/Views/Product/Display.cshtml",product);
+                return RedirectToAction("Index");
             }
-            else
+            return View(model);
+        }
+
+        // GET: Product/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Product/Create
+        [HttpPost]
+        public ActionResult Create(Product collection)
+        {
+            try
             {
-                return RedirectToAction("Index", "Home");
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
             }
         }
-       
-      
+
+        // GET: Product/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        // POST: Product/Edit/5
+        [HttpPost]
+        public ActionResult Edit(int id, Product collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Product/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: Product/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, Product collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }
