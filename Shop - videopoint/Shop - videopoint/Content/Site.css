@@ -20,6 +20,7 @@
 .yellow{
     color: yellow;
 }
+
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -33,3 +34,13 @@ select,
 textarea {
     max-width: 280px;
 }
+.product {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid black;
+    margin: 10px 0; 
+}
+
+    .product .price {
+        float: right;
+    }
