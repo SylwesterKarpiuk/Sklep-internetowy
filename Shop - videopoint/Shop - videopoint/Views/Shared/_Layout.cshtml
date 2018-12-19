@@ -38,11 +38,11 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
+        @RenderSection("AdditionalFooterInformation", required: false)
         <footer>
             <p>&copy; @DateTime.Now.Year — moja aplikacja platformy ASP.NET</p>
         </footer>
     </div>
 
-    
 </body>
 </html>

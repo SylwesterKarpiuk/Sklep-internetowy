@@ -11,7 +11,7 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
-<p>Pierwszym przedmiotem ever został @first.Name</p>
+
 
 @foreach (var product in Model)
 {
@@ -19,5 +19,6 @@
         <h2>@product.Name</h2>
         <p>@Html.Raw(product.Description)</p>
         <div class="price red">@product.Price</div>
+        <p>@Html.ActionLink("Edytuj", "Edit", new { id = product.id })</p>
     </div>
 }

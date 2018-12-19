@@ -63,7 +63,8 @@ namespace Shop___videopoint.Controllers
         // GET: Product/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var product = _products.Single(p => p.id == id);
+            return View(product);
         }
 
         // POST: Product/Edit/5
