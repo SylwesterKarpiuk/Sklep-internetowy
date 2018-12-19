@@ -5,11 +5,13 @@ using System.Web;
 
 namespace Shop___videopoint.Models
 {
-    public class Product
+    public class Product : IEntity
     {
-        public int id { get; set; }
+
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
+        public virtual Category Category { get; set; }
+        public ICollection<Review> Review { get; set; }
     }
 }
