@@ -13,7 +13,7 @@ namespace Shop___videopoint.Controllers
     {
         static List<Product> _products = new List<Product>
         {
-            new Product{ id = 1, Name = "Myszka", Description="Opis myszki", Price = 15 },
+            new Product{ id = 1, Name = "Myszka", Description="<b>Super</b> cena! Nie czekaj tylko <span style='font-size: 24px;'>KUP!</span>", Price = 15 },
             new Product{ id = 2, Name = "Klawiatura", Description="Opis klawiatury", Price = 25 },
             new Product{ id = 3, Name = "Słuchawki", Description="Opis słuchawek", Price = 60 },
             new Product{ id = 4, Name = "Monitor", Description="Opis monitora", Price = 500 }
