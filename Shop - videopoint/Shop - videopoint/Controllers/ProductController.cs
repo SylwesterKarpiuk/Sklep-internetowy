@@ -71,16 +71,12 @@ namespace Shop___videopoint.Controllers
         [HttpPost]
         public ActionResult Edit(int id, Product collection)
         {
-            try
+            var product = _products.Single(p => p.id == id);
+            if (TryUpdateModel(product))
             {
-                // TODO: Add update logic here
-
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(product);
         }
 
         // GET: Product/Delete/5
