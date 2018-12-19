@@ -79,6 +79,13 @@ namespace Shop___videopoint.Controllers
             return View(product);
         }
 
+        [ChildActionOnly]
+        public ActionResult CheapestProduct()
+        {
+            var model = _products.FirstOrDefault(p => p.Price == _products.Min(pr => pr.Price));
+            return PartialView("_Product", model);
+        }
+
         // GET: Product/Delete/5
         public ActionResult Delete(int id)
         {

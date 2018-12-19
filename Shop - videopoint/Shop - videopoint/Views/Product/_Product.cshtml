@@ -1,8 +1,8 @@
 ﻿@model Shop___videopoint.Models.Product
 
 <div class="product">
-    <h2>@Model.Name</h2>
+    <h4>@Model.Name</h4>
     <p>@Html.Raw(Model.Description)</p>
     <div class="price red">@Model.Price</div>
-    <p>@Html.ActionLink("Edytuj", "Edit", new { id = Model.id })</p>
+    
 </div>

@@ -16,4 +16,5 @@
 @foreach (var product in Model)
 {
     @Html.Partial("_Product", product)
+    <div><p>@Html.ActionLink("Edytuj", "Edit", new { id = product.id })</p></div>
 }
