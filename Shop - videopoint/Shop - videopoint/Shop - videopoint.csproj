@@ -186,6 +186,10 @@
     <Compile Include="Migrations\201812191318487_ShopInitial.Designer.cs">
       <DependentUpon>201812191318487_ShopInitial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812231128250_ProductDataAnnotiation.cs" />
+    <Compile Include="Migrations\201812231128250_ProductDataAnnotiation.Designer.cs">
+      <DependentUpon>201812231128250_ProductDataAnnotiation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -284,6 +288,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201812191318487_ShopInitial.resx">
       <DependentUpon>201812191318487_ShopInitial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812231128250_ProductDataAnnotiation.resx">
+      <DependentUpon>201812231128250_ProductDataAnnotiation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
