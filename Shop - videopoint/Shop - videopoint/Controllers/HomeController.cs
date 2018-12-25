@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shop___videopoint.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,14 +9,17 @@ namespace Shop___videopoint.Controllers
 {
     public class HomeController : BaseController
     {
-        public ActionResult Index()
+        public ActionResult Index(string search = null)
         {
-            var selectCategories = from c in _db.Categories
-                                   where c.Name.Length < 7
-                                   select c;
-            var selectedCategories2 = _db.Categories.Where(c => c.Name.Length < 7);
-
-            var model = _db.Categories.ToList();
+            IEnumerable<Category> model;
+            if (!string.IsNullOrEmpty(search))
+            {
+                model = _db.Categories.Where(c => c.Name.Contains(search));
+            }
+            else
+            {
+                model = _db.Categories;
+            }
             return View(model);
         }
 
