@@ -1,0 +1,12 @@
+﻿@model Shop___videopoint.Models.Product
+
+<div>
+    <h2>@Model.Name</h2>
+    <hr />
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { productId = Model.id })
+</p>
+
+@Html.Partial("_Review", Model.Review)

@@ -179,6 +179,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ReviewsController.cs" />
     <Compile Include="Filters\LogAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -198,6 +199,14 @@
     <Compile Include="Migrations\201812251518129_ShopCreation.cs" />
     <Compile Include="Migrations\201812251518129_ShopCreation.Designer.cs">
       <DependentUpon>201812251518129_ShopCreation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812251549157_Reviews.cs" />
+    <Compile Include="Migrations\201812251549157_Reviews.Designer.cs">
+      <DependentUpon>201812251549157_Reviews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812251630260_Reviews2.cs" />
+    <Compile Include="Migrations\201812251630260_Reviews2.Designer.cs">
+      <DependentUpon>201812251630260_Reviews2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -283,6 +292,9 @@
     <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Reviews\Index.cshtml" />
+    <Content Include="Views\Reviews\_Review.cshtml" />
+    <Content Include="Views\Reviews\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -313,6 +325,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812251518129_ShopCreation.resx">
       <DependentUpon>201812251518129_ShopCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812251549157_Reviews.resx">
+      <DependentUpon>201812251549157_Reviews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812251630260_Reviews2.resx">
+      <DependentUpon>201812251630260_Reviews2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
