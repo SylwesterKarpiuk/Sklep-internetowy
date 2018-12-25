@@ -10,6 +10,11 @@ namespace Shop___videopoint.Controllers
     {
         public ActionResult Index()
         {
+            var selectCategories = from c in _db.Categories
+                                   where c.Name.Length < 7
+                                   select c;
+            var selectedCategories2 = _db.Categories.Where(c => c.Name.Length < 7);
+
             var model = _db.Categories.ToList();
             return View(model);
         }
