@@ -7,18 +7,15 @@ using System.Web;
 
 namespace Shop___videopoint.Models
 {
-    [Table("Produkty")]
     public class Product : IEntity
     {
-
         [Required]
-        [MinLength(10),MaxLength(60)]
-        [Column("Nazwa")]
+        [MaxLength(60), MinLength(5)]
         public string Name { get; set; }
         [Required]
         public string Description { get; set; }
         public decimal Price { get; set; }
-        public virtual Category Category { get; set; }
-        public ICollection<Review> Review { get; set; }
+       // public virtual Category Category { get; set; }
+       // public ICollection<Review> Review { get; set; }
     }
 }

@@ -175,20 +175,29 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Filters\LogAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201812191318487_ShopInitial.cs" />
-    <Compile Include="Migrations\201812191318487_ShopInitial.Designer.cs">
-      <DependentUpon>201812191318487_ShopInitial.cs</DependentUpon>
+    <Compile Include="Migrations\201812251500311_xxx.cs" />
+    <Compile Include="Migrations\201812251500311_xxx.Designer.cs">
+      <DependentUpon>201812251500311_xxx.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201812231128250_ProductDataAnnotiation.cs" />
-    <Compile Include="Migrations\201812231128250_ProductDataAnnotiation.Designer.cs">
-      <DependentUpon>201812231128250_ProductDataAnnotiation.cs</DependentUpon>
+    <Compile Include="Migrations\201812251512319_Init.cs" />
+    <Compile Include="Migrations\201812251512319_Init.Designer.cs">
+      <DependentUpon>201812251512319_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812251514541_init2.cs" />
+    <Compile Include="Migrations\201812251514541_init2.Designer.cs">
+      <DependentUpon>201812251514541_init2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812251518129_ShopCreation.cs" />
+    <Compile Include="Migrations\201812251518129_ShopCreation.Designer.cs">
+      <DependentUpon>201812251518129_ShopCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -264,9 +273,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\Product\Edit.cshtml" />
-    <Content Include="Views\Product\_Product.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -286,11 +302,17 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812191318487_ShopInitial.resx">
-      <DependentUpon>201812191318487_ShopInitial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812251500311_xxx.resx">
+      <DependentUpon>201812251500311_xxx.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812231128250_ProductDataAnnotiation.resx">
-      <DependentUpon>201812231128250_ProductDataAnnotiation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812251512319_Init.resx">
+      <DependentUpon>201812251512319_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812251514541_init2.resx">
+      <DependentUpon>201812251514541_init2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812251518129_ShopCreation.resx">
+      <DependentUpon>201812251518129_ShopCreation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
