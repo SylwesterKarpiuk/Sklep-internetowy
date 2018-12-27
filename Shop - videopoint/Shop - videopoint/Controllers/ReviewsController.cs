@@ -34,5 +34,17 @@ namespace Shop___videopoint.Controllers
             }
             return View(model);
         }
+        public ActionResult Edit(int id)
+        {
+            var review = _db.Reviews.Find(id);
+            if (review != null)
+            {
+                return View(review);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Products");
+            }
+        }
     }
 }
