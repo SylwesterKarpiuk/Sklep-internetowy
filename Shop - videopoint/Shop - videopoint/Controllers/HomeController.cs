@@ -12,11 +12,11 @@ namespace Shop___videopoint.Controllers
             IEnumerable<Category> model;
             if (!string.IsNullOrEmpty(search))
             {
-                model = _db.Categories.Where(c => c.Name.Contains(search));
+                model = _db.Categories.Where(c => c.Name.Contains(search)).ToList();
             }
             else
             {
-                model = _db.Categories;
+                model = _db.Categories.ToList();
             }
             return View(model);
         }
