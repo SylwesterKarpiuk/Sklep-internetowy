@@ -46,5 +46,17 @@ namespace Shop___videopoint.Controllers
                 return RedirectToAction("Index", "Products");
             }
         }
+        [HttpPost]
+        public ActionResult Edit(Review model)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Entry(model).State = System.Data.Entity.EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("Index", new { id = model.ProductId });
+            }
+            return View(model);
+            
+        }
     }
 }
