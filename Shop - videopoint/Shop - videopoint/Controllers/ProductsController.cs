@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Shop___videopoint.Models;
+using Shop___videopoint.ViewModels;
 
 namespace Shop___videopoint.Controllers
 {
@@ -48,7 +49,9 @@ namespace Shop___videopoint.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
-            return View();
+            var model = new CreateProductViewModel();
+            model.Categories = _db.Categories.Select(c => new SelectListItem { Text = c.Name, Value = c.id.ToString() });
+            return View(model);
         }
 
         // POST: Products/Create
@@ -56,7 +59,7 @@ namespace Shop___videopoint.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,Name,Description,Price")] Product product)
+        public ActionResult Create([Bind(Include = "id,Name,Description,Price,CategoryId")] Product product)
         {
             if (ModelState.IsValid)
             {
