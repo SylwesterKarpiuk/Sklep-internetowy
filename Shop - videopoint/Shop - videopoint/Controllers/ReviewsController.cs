@@ -47,7 +47,7 @@ namespace Shop___videopoint.Controllers
             }
         }
         [HttpPost]
-        public ActionResult Edit(Review model)
+        public ActionResult Edit([Bind(Exclude="Name")]Review model)
         {
             if (ModelState.IsValid)
             {

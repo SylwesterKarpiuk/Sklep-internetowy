@@ -12,5 +12,6 @@ namespace Shop___videopoint.Models
         public int Rating { get; set; }
         public string Comment { get; set; }
         public int ProductId { get; set; }
+        public string Name { get; set; }
     }
 }
