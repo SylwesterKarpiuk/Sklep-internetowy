@@ -10,14 +10,24 @@ using Shop___videopoint.Models;
 
 namespace Shop___videopoint.Controllers
 {
-    public class ProductsController : Controller
+    public class ProductsController : BaseController
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Products
-        public ActionResult Index()
+        public ActionResult Index(int? categoryId = null)
         {
-            return View(db.Products.ToList());
+            IEnumerable<Product> products;
+            if (categoryId.HasValue)
+            {
+                if (_db.Categories.Any(c=>c.id == categoryId.Value))
+                {
+                    products = _db.Products.Where(p => p.CategoryId == categoryId.Value);
+                    return View(products);
+                }
+                
+            }
+            products = _db.Products;
+            return View(products);
         }
 
         // GET: Products/Details/5
@@ -27,7 +37,7 @@ namespace Shop___videopoint.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Product product = _db.Products.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -50,8 +60,8 @@ namespace Shop___videopoint.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Products.Add(product);
-                db.SaveChanges();
+               _db.Products.Add(product);
+               _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +75,7 @@ namespace Shop___videopoint.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Product product = _db.Products.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -82,8 +92,8 @@ namespace Shop___videopoint.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
-                db.SaveChanges();
+               _db.Entry(product).State = EntityState.Modified;
+               _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(product);
@@ -96,7 +106,7 @@ namespace Shop___videopoint.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Product product =_db.Products.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -109,19 +119,11 @@ namespace Shop___videopoint.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Product product = db.Products.Find(id);
-            db.Products.Remove(product);
-            db.SaveChanges();
+            Product product = _db.Products.Find(id);
+            _db.Products.Remove(product);
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }
