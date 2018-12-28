@@ -6,10 +6,13 @@
         <li>
             <div>
                 <h4>@item.Rating / 10</h4>
-                <small>Author: @item.Name</small>
+                <small>Author: @item.Name @if (User != null && User.Identity != null && item.Name == User.Identity.Name) {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id })
+                }  
+                </small>
             </div>
+            
             <p>@Html.DisplayFor(modelItem => item.Comment)</p>
-            <p><small>@Html.ActionLink("Edit","Edit", new { id = item.id })</small></p>
         </li>
     }
 </ul>
