@@ -9,10 +9,13 @@ namespace Shop___videopoint.Controllers
     {
         public ActionResult Index(string search = null)
         {
-            IEnumerable<Category> model;
+            List<Category> model;
             if (!string.IsNullOrEmpty(search))
             {
                 model = _db.Categories.Where(c => c.Name.Contains(search)).ToList();
+                var categoryIds = _db.Products.Where(p => p.Name.Contains(search)).Select(p => p.CategoryId);
+                model.AddRange(_db.Categories.Where(c => categoryIds.Contains(c.id)));
+                model.Distinct();
             }
             else
             {
