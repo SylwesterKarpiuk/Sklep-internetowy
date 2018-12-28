@@ -152,9 +152,10 @@ namespace Shop___videopoint.Controllers
                     user.Products.Add(product);
                     _db.Entry(user).State = EntityState.Modified;
                     _db.SaveChanges();
+                    return RedirectToAction("Balance", "Shop");
                 }
             }
-            return View("Index");
+            return RedirectToAction("Index");
         }
     }
 }
