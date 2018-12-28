@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using Shop___videopoint.Models;
 using Shop___videopoint.ViewModels;
 
@@ -133,6 +134,23 @@ namespace Shop___videopoint.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        [Authorize]
+        public ActionResult Buy(int id)
+        {
+            var product = _db.Products.Find(id);
+            if (product !=null)
+            {
+                var userId = User.Identity.GetUserId();
+                var user = _db.Users.Find(userId);
+                if (user.Balence >= product.Price)
+                {
+                    user.Balence -= product.Price;
+                    user.Products.Add(product);
+                    _db.Entry(user).State = EntityState.Modified;
+                    _db.SaveChanges();
+                }
+            }
+            return View("Index");
+        }
     }
 }
