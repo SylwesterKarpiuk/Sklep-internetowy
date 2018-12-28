@@ -31,6 +31,7 @@ namespace Shop___videopoint.Controllers
             return View(products);
         }
 
+        
         // GET: Products/Details/5
         public ActionResult Details(int? id)
         {
@@ -47,6 +48,7 @@ namespace Shop___videopoint.Controllers
         }
 
         // GET: Products/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             var model = new CreateProductViewModel();
@@ -59,6 +61,7 @@ namespace Shop___videopoint.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "id,Name,Description,Price,CategoryId")] Product product)
         {
             if (ModelState.IsValid)
@@ -72,6 +75,7 @@ namespace Shop___videopoint.Controllers
         }
 
         // GET: Products/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,6 +95,7 @@ namespace Shop___videopoint.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "id,Name,Description,Price")] Product product)
         {
             if (ModelState.IsValid)
@@ -103,6 +108,7 @@ namespace Shop___videopoint.Controllers
         }
 
         // GET: Products/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
