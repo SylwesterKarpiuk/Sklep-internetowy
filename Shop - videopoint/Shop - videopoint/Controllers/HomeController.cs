@@ -7,21 +7,9 @@ namespace Shop___videopoint.Controllers
 {
     public class HomeController : BaseController
     {
-        public ActionResult Index(string search = null)
+        public ActionResult Index()
         {
-            List<Category> model;
-            if (!string.IsNullOrEmpty(search))
-            {
-                model = _db.Categories.Where(c => c.Name.Contains(search)).ToList();
-                var categoryIds = _db.Products.Where(p => p.Name.Contains(search)).Select(p => p.CategoryId);
-                model.AddRange(_db.Categories.Where(c => categoryIds.Contains(c.id)));
-                model.Distinct();
-            }
-            else
-            {
-                model = _db.Categories.ToList();
-            }
-            return View(model);
+            return View();
         }
 
         public ActionResult About()
