@@ -21,18 +21,18 @@ namespace Shop___videopoint.Controllers
             IEnumerable<Product> products;
             if (categoryId.HasValue)
             {
-                if (_db.Categories.Any(c=>c.id == categoryId.Value))
+                if (_db.Categories.Any(c => c.id == categoryId.Value))
                 {
                     products = _db.Products.Where(p => p.CategoryId == categoryId.Value);
                     return View(products);
                 }
-                
+
             }
             products = _db.Products;
             return View(products);
         }
 
-        
+
         // GET: Products/Details/5
         public ActionResult Details(int? id)
         {
@@ -67,8 +67,8 @@ namespace Shop___videopoint.Controllers
         {
             if (ModelState.IsValid)
             {
-               _db.Products.Add(product);
-               _db.SaveChanges();
+                _db.Products.Add(product);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -101,8 +101,8 @@ namespace Shop___videopoint.Controllers
         {
             if (ModelState.IsValid)
             {
-               _db.Entry(product).State = EntityState.Modified;
-               _db.SaveChanges();
+                _db.Entry(product).State = EntityState.Modified;
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(product);
@@ -116,7 +116,7 @@ namespace Shop___videopoint.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product =_db.Products.Find(id);
+            Product product = _db.Products.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -135,10 +135,14 @@ namespace Shop___videopoint.Controllers
             return RedirectToAction("Index");
         }
         [Authorize]
-        public ActionResult Buy(int id)
+        public ActionResult Buy(int? id)
         {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
             var product = _db.Products.Find(id);
-            if (product !=null)
+            if (product != null)
             {
                 var userId = User.Identity.GetUserId();
                 var user = _db.Users.Find(userId);

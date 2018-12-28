@@ -22,5 +22,6 @@ namespace Shop___videopoint.Models
         {
             return new ApplicationDbContext();
         }
+        
     }
 }
